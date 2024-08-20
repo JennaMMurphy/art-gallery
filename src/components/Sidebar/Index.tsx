@@ -9,8 +9,7 @@ const SidebarIndex: React.FC = () => {
   return (
     <>
       <nav>
-        <h3>Marina Kuznetsov</h3>
-        <h4>Please check me out</h4>
+        <h3 className="font--xl">Marina Kuznetsov</h3>
       </nav>
       <div className="tab-container">
         <TabList activeTabIndex={1}>

@@ -1,9 +1,9 @@
 export interface GalleryItemProps {
-  item: GalleryItemType
+  item: GalleryItemType;
 }
 
 export interface GalleryItemType {
-    src: string; description: string
+  src: string;
+  description: string;
+  title: string;
 }
-
-

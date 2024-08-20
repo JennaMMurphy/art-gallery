@@ -11,6 +11,16 @@ nav {
   padding: 30px 25px;
 }
 
+
+/* Helpers */
+.font--xl{
+  font-size: x-large;
+}
+
+.margin--med {
+  margin: 2rem;
+}
+
 .side-bar > h3,
 .side-bar > h4 {
   margin: 0;
@@ -22,13 +32,15 @@ nav {
 
 .tab-list {
   display: flex;
-  height: 50vh;
-  justify-content: center;
+  width: 8vw;
+  height: 100vh;
   flex-direction: column;
+  margin-top: 8rem;
 }
 
 .tab-panel {
-  width:100%;
+  width: 100%;
+  margin: 2rem;
 }
 
 /* Gallery */
@@ -36,13 +48,32 @@ nav {
 .gallery__container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-.gallery__imageContainer {
-  margin: 2rem;
+  align-items: flex-start;
 }
 
 .gallery__image {
-  max-height: 400px;
+  max-height: 70vh;
 }
+
+/* Contact Form */
+
+.contact__section{
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.contact__input{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 40%;
+  min-height: 5vh;
+}
+
+.contact__button {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: .5rem 1rem;
+}
+
