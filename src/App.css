@@ -1,12 +1,48 @@
-nav {
-  display: flex;
-  align-items: center;
-  background-color: wheat;
-  height: 90px;
-  padding: 30px 25px;
-  
+#root {
+  height: 100%;
 }
 
-nav > h3, nav > h4 {
+.app {
+  height: 100vh;
+}
+
+nav {
+  background-color: wheat;
+  padding: 30px 25px;
+}
+
+.side-bar > h3,
+.side-bar > h4 {
   margin: 0;
+}
+
+.tab-container {
+  display: flex;
+}
+
+.tab-list {
+  display: flex;
+  height: 50vh;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.tab-panel {
+  width:100%;
+}
+
+/* Gallery */
+
+.gallery__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery__imageContainer {
+  margin: 2rem;
+}
+
+.gallery__image {
+  max-height: 400px;
 }

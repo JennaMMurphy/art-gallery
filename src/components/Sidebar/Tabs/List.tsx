@@ -15,8 +15,8 @@ const TabList: React.FC<TabsProps> = ({ children, activeTabIndex = 0 }) => {
   );
 
   return (
-    <div className="tabs">
-      <nav className="tab-list-wrapper">
+    <>
+      <nav>
         <ul className="tab-list" role="tablist" aria-orientation="horizontal">
           {tabs.map((tab, index) => (
             <li key={`tab-${index}`}>
@@ -37,8 +37,9 @@ const TabList: React.FC<TabsProps> = ({ children, activeTabIndex = 0 }) => {
           ))}
         </ul>
       </nav>
+
       {tabs[activeTab]}
-    </div>
+    </>
   );
 };
 
