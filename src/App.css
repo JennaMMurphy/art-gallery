@@ -11,10 +11,13 @@ nav {
   padding: 30px 25px;
 }
 
-
 /* Helpers */
-.font--xl{
+.font--xl {
   font-size: x-large;
+}
+
+.font--sm {
+  font-size: small;
 }
 
 .margin--med {
@@ -23,6 +26,10 @@ nav {
 
 .text--capitalize {
   text-transform: capitalize;
+}
+
+.has--error {
+  color: red;
 }
 
 .side-bar > h3,
@@ -61,23 +68,28 @@ nav {
 
 /* Contact Form */
 
-.contact__section{
+.contact__section {
   display: flex;
   flex-direction: column;
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
-.contact__input{
+.contact__input {
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 40%;
   min-height: 5vh;
+  &.has--error {
+    border-color: red;
+  }
 }
+
+
+
 
 .contact__button {
   border: 1px solid #ccc;
   border-radius: 4px;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 }
-

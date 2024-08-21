@@ -2,7 +2,7 @@ import { useState } from "react";
 import { InputField } from "../../../utils/constants";
 import ContactInput from "./Input";
 
-import type { FormError, FormErrorValue } from "../../../types/Contact";
+import type { FormError } from "../../../types/Contact";
 
 const PageContact: React.FC = () => {
   const [errors, setErrors] = useState<FormError>({
@@ -16,24 +16,36 @@ const PageContact: React.FC = () => {
     event.preventDefault();
 
     const form = event.target as HTMLFormElement;
+    Array.from(form.elements).forEach(input => {
+      if (input instanceof HTMLInputElement) {
+        performValidation(input);
+      }
+    })
+
+    if(Object.values(errors).some((error) => !!error)){
+      return;
+    }
+
     const formData = new FormData(form);
+    //TODO
     //fetch('/some-api', { method: form.method, body: formData });
 
     console.log(Object.fromEntries(formData.entries()));
   };
 
-  const performValidation: React.ChangeEventHandler<HTMLInputElement> = (
-    event
+
+  const performValidation = (
+    input: HTMLInputElement
   ) => {
-    const { validationMessage } = event.target;
+    const { validationMessage } = input;
     setErrors((prevState) => ({
       ...prevState,
-      [event.target.name]: validationMessage ?? null,
+      [input.name]: validationMessage ?? null,
     }));
   };
 
   return (
-    <form method="post" onSubmit={handleSubmit}>
+    <form noValidate method="post" onSubmit={handleSubmit}>
       <ContactInput
         name={InputField.Name}
         performValidation={performValidation}
@@ -53,7 +65,7 @@ const PageContact: React.FC = () => {
       <ContactInput
         name={InputField.Message}
         performValidation={performValidation}
-        type="email"
+        type="textArea"
         error={errors[InputField.Message]}
       />
 

@@ -3,9 +3,11 @@ import { InputField } from "../utils/constants";
 export type FormErrorValue = string | null;
 export interface FormError extends Record<InputField, FormErrorValue> {}
 
-export interface FormInputProps {
-    name: InputField
-    performValidation:( event: React.ChangeEvent<HTMLInputElement>) => void;
-    error: string | null
-    type?: string;
+
+type FormInputType = 'text' | 'email' | 'textArea'
+export type FormInputProps = {
+    name: InputField;
+    performValidation:( input: HTMLInputElement | HTMLTextAreaElement) => void;
+    error: string | null;
+    type?: FormInputType
 }
