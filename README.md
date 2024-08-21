@@ -1,15 +1,14 @@
-# React + TypeScript + Vite
+# Art Gallery Webpage
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the front end application for an art gallery website.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Backend
 
-## Expanding the ESLint configuration
+There is no API yet, that is to come.
+I was just creating the front-end first `:)`
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Endpoints will be needed for [The contact submission form](https://github.com/jsx-eslint/eslint-plugin-react) and [fetching the gallery items](https://github.com/jsx-eslint/eslint-plugin-react)
 
 - Configure the top-level `parserOptions` property like this:
 
