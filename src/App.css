@@ -37,13 +37,23 @@ nav {
   margin: 0;
 }
 
+/* Tabs */
+
+.tab__btn{
+  margin: 0.2rem auto;
+  padding: 0.2rem;
+  min-width: 10rem;
+  &.is--active{
+    background-color: #e7dcda;
+  }
+}
+
 .tab-container {
   display: flex;
 }
 
 .tab-list {
   display: flex;
-  width: 8vw;
   height: 100vh;
   flex-direction: column;
   margin-top: 8rem;
@@ -64,6 +74,7 @@ nav {
 
 .gallery__image {
   max-height: 70vh;
+  border-radius: 5px;
 }
 
 /* Contact Form */
@@ -84,9 +95,6 @@ nav {
     border-color: red;
   }
 }
-
-
-
 
 .contact__button {
   border: 1px solid #ccc;

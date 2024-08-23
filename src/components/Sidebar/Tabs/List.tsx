@@ -21,14 +21,14 @@ const TabList: React.FC<TabsProps> = ({ children, activeTabIndex = 0 }) => {
           {tabs.map((tab, index) => (
             <li key={`tab-${index}`}>
               <button
-                key={`tab-btn-${index}`}
+                key={`tab__btn-${index}`}
                 role="tab"
                 id={`tab-${tab.props.label}`}
                 aria-controls={`panel-${tab.props.label}`}
                 aria-selected={activeTab === index}
                 onClick={() => handleTabClick(index)}
-                className={`tab-btn ${
-                  activeTab === index && "tab-btn--active"
+                className={`tab__btn ${
+                  activeTab === index && "is--active"
                 }`}
               >
                 {tab.props.label}

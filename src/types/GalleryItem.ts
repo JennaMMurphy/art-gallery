@@ -4,6 +4,7 @@ export interface GalleryItemProps {
 
 export interface GalleryItemType {
   src: string;
+  price: number;
   description: string;
   title: string;
 }

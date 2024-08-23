@@ -1,6 +1,7 @@
 import React from "react";
-import PageContact from "../Page/Contact";
+import PageContact from "../Page/Contact/Index";
 import PageAboutMe from "../Page/AboutMe";
+import SocialTabs from "./Tabs/Socials";
 import TabItem from "./Tabs/Item";
 import TabList from "./Tabs/List";
 import GalleryIndex from "../Page/Gallery/Index";
@@ -9,7 +10,9 @@ const SidebarIndex: React.FC = () => {
   return (
     <>
       <nav>
-        <h3 className="font--xl">Marina Kuznetsov</h3>
+        <h3 className="font--xl">Jenna Murphy's art Gallery</h3>
+        <SocialTabs />
+
       </nav>
       <div className="tab-container">
         <TabList activeTabIndex={1}>
@@ -23,6 +26,7 @@ const SidebarIndex: React.FC = () => {
             <PageContact />
           </TabItem>
         </TabList>
+
       </div>
     </>
   );

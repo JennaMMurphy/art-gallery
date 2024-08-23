@@ -16,13 +16,13 @@ const PageContact: React.FC = () => {
     event.preventDefault();
 
     const form = event.target as HTMLFormElement;
-    Array.from(form.elements).forEach(input => {
+    Array.from(form.elements).forEach((input) => {
       if (input instanceof HTMLInputElement) {
         performValidation(input);
       }
-    })
+    });
 
-    if(Object.values(errors).some((error) => !!error)){
+    if (Object.values(errors).some((error) => !!error)) {
       return;
     }
 
@@ -33,10 +33,7 @@ const PageContact: React.FC = () => {
     console.log(Object.fromEntries(formData.entries()));
   };
 
-
-  const performValidation = (
-    input: HTMLInputElement
-  ) => {
+  const performValidation = (input: HTMLInputElement | HTMLTextAreaElement) => {
     const { validationMessage } = input;
     setErrors((prevState) => ({
       ...prevState,

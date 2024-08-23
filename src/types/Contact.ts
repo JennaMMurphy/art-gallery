@@ -3,11 +3,10 @@ import { InputField } from "../utils/constants";
 export type FormErrorValue = string | null;
 export interface FormError extends Record<InputField, FormErrorValue> {}
 
-
-type FormInputType = 'text' | 'email' | 'textArea'
+type FormInputType = "text" | "email" | "textArea";
 export type FormInputProps = {
-    name: InputField;
-    performValidation:( input: HTMLInputElement | HTMLTextAreaElement) => void;
-    error: string | null;
-    type?: FormInputType
-}
+  name: InputField;
+  performValidation: (input: HTMLInputElement | HTMLTextAreaElement) => void;
+  error: string | null;
+  type?: FormInputType;
+};
