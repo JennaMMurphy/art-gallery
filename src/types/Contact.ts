@@ -1,4 +1,4 @@
-import { InputField } from "../utils/constants";
+import { InputField } from "../utils/Constants";
 
 export type FormErrorValue = string | null;
 export interface FormError extends Record<InputField, FormErrorValue> {}

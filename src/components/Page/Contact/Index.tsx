@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { InputField } from "../../../utils/constants";
+import { InputField } from "../../../utils/Constants";
 import ContactInput from "./Input";
 
 import type { FormError } from "../../../types/Contact";
