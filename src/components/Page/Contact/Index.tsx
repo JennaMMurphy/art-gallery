@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { InputField } from "../../../utils/Constants";
+import { HttpMethod, InputField } from "../../../utils/Constants";
+import _fetch from "../../../utils/Fetch";
 import ContactInput from "./Input";
 
 import type { FormError } from "../../../types/Contact";
@@ -16,52 +17,63 @@ const PageContact: React.FC = () => {
     event.preventDefault();
 
     const form = event.target as HTMLFormElement;
+
+    let isValid = true;
+
     Array.from(form.elements).forEach((input) => {
-      if (input instanceof HTMLInputElement) {
-        performValidation(input);
+      if (
+        input instanceof HTMLInputElement ||
+        input instanceof HTMLTextAreaElement
+      ) {
+        const isInputValid = checkValid(input);
+        if (!isInputValid) {
+          isValid = false;
+        }
       }
     });
-
-    if (Object.values(errors).some((error) => !!error)) {
+    if (!isValid) {
       return;
     }
-
     const formData = new FormData(form);
+    _fetch("api/v1/contact", { method: HttpMethod.Post, body:  JSON.stringify(Object.fromEntries(formData.entries())) });
     //TODO
     //fetch('/some-api', { method: form.method, body: formData });
 
-    console.log(Object.fromEntries(formData.entries()));
+    // console.log(Object.fromEntries(formData.entries()));
   };
 
-  const performValidation = (input: HTMLInputElement | HTMLTextAreaElement) => {
+  const checkValid = (
+    input: HTMLInputElement | HTMLTextAreaElement
+  ): boolean => {
     const { validationMessage } = input;
     setErrors((prevState) => ({
       ...prevState,
       [input.name]: validationMessage ?? null,
     }));
+    return !validationMessage;
   };
 
   return (
     <form noValidate method="post" onSubmit={handleSubmit}>
       <ContactInput
         name={InputField.Name}
-        performValidation={performValidation}
+        checkValid={checkValid}
         error={errors[InputField.Name]}
       />
       <ContactInput
         name={InputField.Subject}
-        performValidation={performValidation}
+        checkValid={checkValid}
         error={errors[InputField.Subject]}
       />
       <ContactInput
         name={InputField.Email}
-        performValidation={performValidation}
+        checkValid={checkValid}
         type="email"
         error={errors[InputField.Email]}
       />
       <ContactInput
         name={InputField.Message}
-        performValidation={performValidation}
+        checkValid={checkValid}
         type="textArea"
         error={errors[InputField.Message]}
       />

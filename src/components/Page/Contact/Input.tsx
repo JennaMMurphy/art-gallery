@@ -2,7 +2,7 @@ import type { FormInputProps } from "../../../types/Contact";
 
 const ContactInput: React.FC<FormInputProps> = ({
   name,
-  performValidation,
+  checkValid,
   error,
   type = "text",
 }) => {
@@ -11,7 +11,7 @@ const ContactInput: React.FC<FormInputProps> = ({
   > = (event) => {
     const input = event.target;
     if (input instanceof HTMLInputElement || input instanceof HTMLTextAreaElement) {
-      performValidation(input);
+      checkValid(input);
     }
   };
 

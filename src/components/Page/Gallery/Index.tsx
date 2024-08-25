@@ -5,7 +5,6 @@ import _fetch from "../../../utils/Fetch";
 
 const GalleryIndex: React.FC = () => {
   const [items, setItems] = useState<GalleryItemType[]>([]);
-  //GalleryItemType;
   useEffect(() => {
     _fetch<GalleryItemType[]>("api/v1/gallery/items").then((data) => {
       setItems(data);

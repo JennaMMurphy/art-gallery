@@ -6,7 +6,7 @@ export interface FormError extends Record<InputField, FormErrorValue> {}
 type FormInputType = "text" | "email" | "textArea";
 export type FormInputProps = {
   name: InputField;
-  performValidation: (input: HTMLInputElement | HTMLTextAreaElement) => void;
+  checkValid: (input: HTMLInputElement | HTMLTextAreaElement) => boolean;
   error: string | null;
   type?: FormInputType;
 };
