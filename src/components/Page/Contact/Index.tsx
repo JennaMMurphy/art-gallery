@@ -2,6 +2,7 @@ import { useState } from "react";
 import { HttpMethod, InputField } from "../../../utils/Constants";
 import _fetch from "../../../utils/Fetch";
 import ContactInput from "./Input";
+import { ToastContainer } from "react-toastify";
 
 import type { FormError } from "../../../types/Contact";
 
@@ -13,7 +14,9 @@ const PageContact: React.FC = () => {
     [InputField.Subject]: null,
   });
 
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (
+    event
+  ) => {
     event.preventDefault();
 
     const form = event.target as HTMLFormElement;
@@ -35,11 +38,14 @@ const PageContact: React.FC = () => {
       return;
     }
     const formData = new FormData(form);
-    _fetch("api/v1/contact", { method: HttpMethod.Post, body:  JSON.stringify(Object.fromEntries(formData.entries())) });
-    //TODO
-    //fetch('/some-api', { method: form.method, body: formData });
-
-    // console.log(Object.fromEntries(formData.entries()));
+    const { success, notify } = await _fetch("api/v1/contact", {
+      method: HttpMethod.Post,
+      body: JSON.stringify(Object.fromEntries(formData.entries())),
+    });
+    notify();
+    if (success) {
+      form.reset();
+    }
   };
 
   const checkValid = (
@@ -77,7 +83,7 @@ const PageContact: React.FC = () => {
         type="textArea"
         error={errors[InputField.Message]}
       />
-
+      <ToastContainer />
       <section>
         <button className="contact__button" type="submit">
           Send
