@@ -39,7 +39,7 @@ const ContactInput: React.FC<FormInputProps> = ({
         ></input>
       )}
 
-      {error && <p className="font--sm has--error">{error}</p>}
+      {error && <p className="text--sm text--error">{error}</p>}
     </section>
   );
 };

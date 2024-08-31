@@ -10,7 +10,7 @@ const SidebarIndex: React.FC = () => {
   return (
     <>
       <nav>
-        <h3 className="font--xl">Jenna Murphy's art Gallery</h3>
+        <h3 className="text--xl">Jenna Murphy's art Gallery</h3>
         <SocialTabs />
 
       </nav>
